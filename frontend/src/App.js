@@ -19,7 +19,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>{this.state.message}</h1>
-        <h2>This is React World!</h2>
+        <h2>안녕하세요!</h2>
+        <ul>
+          <li>Backend : Spring Boot</li>
+          <li>Frontend : React </li>
+        </ul>
       </div>
     );
   }
