@@ -1,32 +1,29 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from 'react';
+import { Route } from 'react-router-dom';
+import {
+  Home,
+  About,
+  Support,
+  Policy,
+  Terms,
+  SamplePage,
+  SampleApi
+} from './pages';
 
-class App extends Component {
-  state = {};
-
-  componentDidMount() {
-    setInterval(this.hello, 250);
-  }
-
-  hello = () => {
-    fetch("/api/hello")
-      .then(response => response.text())
-      .then(message => {
-        this.setState({ message: message });
-      });
-  };
-
+export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>{this.state.message}</h1>
-        <h2>안녕하세요!</h2>
-        <ul>
-          <li>Backend : Spring Boot</li>
-          <li>Frontend : React </li>
-        </ul>
-      </div>
+      <Fragment>
+        <div className="container">
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/sample-page" component={SamplePage} />
+          <Route path="/sample-api" component={SampleApi} />
+          <Route path="/support" component={Support} />
+          <Route path="/policy" component={Policy} />
+          <Route path="/terms" component={Terms} />
+        </div>
+      </Fragment>
     );
   }
 }
-
-export default App;
